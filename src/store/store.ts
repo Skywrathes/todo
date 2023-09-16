@@ -3,8 +3,6 @@ import { nanoid } from 'nanoid';
 import { TodoItemProps, TodoStore, FilterStore } from '@/types';
 import { persist } from 'zustand/middleware';
 
-// const myMiddlewares = (f: TodoStore) => devtools(persist(f, { name: 'todoStore' }))
-
 export const useTodos = create<TodoStore>()(
   persist(
     (set) => ({
@@ -13,8 +11,6 @@ export const useTodos = create<TodoStore>()(
         { id: "id2", title: "Do awesome code", completed: true },
         { id: "id3", title: "Cover by tests", completed: false },
       ],
-      loading: false,
-      error: null,
 
       addTodo: (title) => set(state => {
         const newTodo = { id: nanoid(), title, completed: false }
@@ -27,6 +23,11 @@ export const useTodos = create<TodoStore>()(
             ? { ...todo, completed: !todo.completed }
             : todo);
         return { todos: newTodos }
+      }),
+
+      deleteCompletedTodos: () => set(state => {
+        const activeTodosOnly = state.todos.filter((todo) => todo.completed === false)
+        return { todos: activeTodosOnly }
       }),
 
     }),

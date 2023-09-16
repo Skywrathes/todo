@@ -6,10 +6,9 @@ export interface TodoItemProps {
 
 export interface TodoStore {
   todos: TodoItemProps[];
-  loading: boolean;
-  error: null | string;
   addTodo: (title: string) => void;
   toggleTodo: (tidoId: string) => void;
+  deleteCompletedTodos: () => void;
 }
 
 export interface FilterStore {
