@@ -1,15 +1,21 @@
-
-import Filter from "../Filter/Filter";
-
 import TodoItem from "../TodoItem/TodoItem";
-import { useTodos } from "@/store/store";
+import { useFilter, useTodos } from "@/store/store";
 
 function TodoList() {
-  const todos = useTodos(state => state.todos)
+  const filter = useFilter(state => state.filter);
+  const todos = useTodos((state) => {
+    switch (filter) {
+      case 'completed':
+        return state.todos.filter((todo) => todo.completed);
+      case 'active':
+        return state.todos.filter((todo) => !todo.completed);
+      default:
+        return state.todos;
+    }
+  });
 
   return (
     <div>
-      <Filter></Filter>
       {todos.map((todo) => {
         return (
           <TodoItem key={todo.id} {...todo} />

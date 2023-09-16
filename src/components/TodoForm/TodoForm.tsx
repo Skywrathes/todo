@@ -12,6 +12,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
+import { useTodos } from "@/store/store"
+
+interface TodoFormProps {
+  close: () => void;
+}
 
 const FormSchema = z.object({
   todo: z.string().min(2, {
@@ -19,7 +24,9 @@ const FormSchema = z.object({
   }),
 })
 
-export function TodoForm({ close }) {
+
+export function TodoForm({ close }: TodoFormProps) {
+  const addTodo = useTodos((state) => state.addTodo);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -28,6 +35,7 @@ export function TodoForm({ close }) {
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    addTodo(data.todo);
     toast({
       title: "You submitted the following todo:",
       description: `${data.todo}`,

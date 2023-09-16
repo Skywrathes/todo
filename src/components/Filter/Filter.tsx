@@ -1,12 +1,16 @@
+import { useFilter } from "@/store/store";
 import { Button } from "../ui/button";
 
 function Filter() {
-  const filter = "all"
+  const {filter, setFilter} = useFilter()
   return (
-    <div className="flex gap-3">
-      <Button disabled={filter === "all"}>All</Button>
-      <Button>Completed</Button>
-      <Button>Active</Button>
+    <div className="flex gap-4">
+      <Button className=" md:text-lg lg:text-xl"
+      disabled={filter === "all"} onClick={() => setFilter("all")}>All</Button>
+      <Button className=" md:text-lg lg:text-xl"
+      disabled={filter === "completed"} onClick={() => setFilter("completed")}>Completed</Button>
+      <Button className=" md:text-lg lg:text-xl"
+      disabled={filter === "active"} onClick={() => setFilter("active")}>Active</Button>
     </div>
   );
 }

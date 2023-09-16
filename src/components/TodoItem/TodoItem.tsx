@@ -1,11 +1,16 @@
+import { useTodos } from "@/store/store";
 import { Checkbox } from "../ui/checkbox";
+import { TodoItemProps } from "@/types";
 
+function TodoItem({id, title, completed}: TodoItemProps) {
+  const toggle = useTodos(state => state.toggleTodo)
 
-function TodoItem({id, title, completed}) {
   return (
-    <div className="flex gap-4">
-      <Checkbox checked={completed} />
-      <h2>{title}</h2>
+    <div className="flex gap-5 items-center">
+      <Checkbox checked={completed} onCheckedChange={() => toggle(id)}/>
+      { completed
+      ? <p className="md:text-lg lg:text-2xl line-through">{title}</p>
+      : <p className="md:text-lg lg:text-2xl">{title}</p> }
     </div>
   );
 }
