@@ -6,11 +6,11 @@ function TodoItem({id, title, completed}: TodoItemProps) {
   const toggle = useTodos((state) => state.toggleTodo)
 
   return (
-    <div className="flex gap-5 items-center">
+    <div className="flex gap-5 items-center max-w-full">
       <Checkbox checked={completed} onCheckedChange={() => toggle(id)}/>
       { completed
-      ? <p className="md:text-lg lg:text-2xl line-through text-left">{title}</p>
-      : <p className="md:text-lg lg:text-2xl text-left">{title}</p> }
+      ? <p className="md:text-lg lg:text-2xl line-through text-left [word-break:break-word]">{title}</p>
+      : <p className="md:text-lg lg:text-2xl text-left [word-break:break-word]">{title}</p> }
     </div>
   );
 }

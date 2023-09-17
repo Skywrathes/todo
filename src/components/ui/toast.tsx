@@ -104,7 +104,7 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-lg opacity-90 text-ellipsis overflow-hidden", className)}
+    className={cn("text-sm md:text-lg opacity-90 max-h-24 text-ellipsis overflow-hidden", className)}
     {...props}
   />
 ))
