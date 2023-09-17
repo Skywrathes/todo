@@ -5,10 +5,10 @@ function Header() {
   return (
     <header className="flex justify-between p-7 w-full">
       <div className="flex gap-2 items-center">
-        <ListTodo size={48}/>
+        <ListTodo size={48} data-testid="list-todo-icon"/>
         <h1 className="text-3xl">My Todos</h1>
       </div>
-      <ModeToggle />
+      <ModeToggle data-testid="mode"/>
     </header>
   );
 }
