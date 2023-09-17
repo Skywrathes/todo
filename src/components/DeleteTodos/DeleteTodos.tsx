@@ -17,7 +17,7 @@ function DeleteTodos() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" className="md:text-lg lg:text-2xl">Delete comleted todos</Button>
+        <Button variant="destructive" className="md:text-lg lg:text-2xl">Delete completed todos</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
