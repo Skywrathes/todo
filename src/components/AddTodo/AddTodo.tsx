@@ -17,7 +17,7 @@ function AddTodo() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button >Add todo</Button>
+        <Button className="md:text-lg lg:text-2xl">Add todo</Button>
       </DialogTrigger>
       <DialogContent>
         <TodoForm close={closeHandler}/>
