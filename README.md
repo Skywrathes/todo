@@ -1,27 +1,45 @@
-# React + TypeScript + Vite
+# ToDo-приложение
+Привет! Это ToDo-приложение, которое позволяет вам управлять вашим текущим списком дел.
+Приложение доступно по ссылке:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<https://skywrathes.github.io/todo/>
 
-Currently, two official plugins are available:
+## Интерфейс
+Поле для ввода новой задачи: Вы можете вписать новую задачу в это поле и нажать Add, чтобы добавить ее в список.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Списки всех задач: В приложении есть три списка задач — список всех задач, список невыполненных задач и список выполненных задач. Завершенные задачи отображаются в отдельном списке, чтобы вы могли легко отслеживать прогресс.
 
-## Expanding the ESLint configuration
+## Установка и запуск проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Клонируйте репозиторий с помощью команды:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```sh
+git clone https://github.com/Skywrathes/todo
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Перейдите в директорию проекта:
+
+```sh
+cd todo/
+```
+
+Установите зависимости:
+
+```sh
+npm install
+```
+
+Запустите проект:
+
+```sh
+npm run dev
+```
+
+Откройте приложение в браузере по адресу <http://localhost:5173>.
+
+## Развитие проекта и улучшения
+
+- Добавление функции поиска позволяющей пользователю быстро находить задачи по ключевым словам или фразам.
+- Подключение к API и хранение задач в базе данных
+- Регистрация и авторизация пользователей
+- Улучшение визуального оформления
